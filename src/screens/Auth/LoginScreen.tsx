@@ -4,11 +4,15 @@ import styles from '../../style/Login.styles';
 import InputField from '../../components/TextInput';
 import Layout from '../../layout';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const navigation = useNavigation<NavigationProp>();
 
   const handleLogin = () => {
     console.log({ email, password });
@@ -57,7 +61,12 @@ const LoginScreen = () => {
           </View>
           <Text style={styles.footerText}>
             Don’t Have An Account ?{' '}
-            <Text style={styles.createAccount}>Create Account</Text>
+            <Text
+              style={styles.createAccount}
+              onPress={() => navigation.replace('MainTabs')}
+            >
+              Create Account
+            </Text>
           </Text>
         </View>
       </View>

@@ -21,9 +21,11 @@ export default StyleSheet.create({
     lineHeight: moderateScale(20),
   },
   logo: {
-    width: moderateScale(50),
-    height: moderateScale(50),
+    width: moderateScale(280),
+    height: moderateScale(60),
     resizeMode: 'contain',
+  
+
   },
   logoText: {
     color: COLORS.white,

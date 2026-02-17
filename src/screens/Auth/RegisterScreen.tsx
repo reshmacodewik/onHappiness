@@ -16,6 +16,8 @@ import styles from '../../style/Register.styles';
 import Layout from '../../layout';
 import Images from '../../const/imgUrl';
 import { LinearGradient } from 'react-native-linear-gradient';
+import GradientButton from '@gradient-border/react-native-gradient-button';
+
 const countries = [
   {
     name: 'India',
@@ -136,13 +138,21 @@ const RegisterScreen = ({ navigation }: any) => {
           Tell Us What Is Your Purpose To Join On Happiness Platform
         </Text>
 
-        <TouchableOpacity style={styles.uploadBtn}>
+        <LinearGradient
+       colors={['#8B1DA7', '#1690E6']}
+        start={{ x: 0.0, y: 1.0 }}
+        end={{ x: 1.0, y: 1.0 }}
+        style={styles.gradientBorder}
+      >
+        <TouchableOpacity style={styles.button} activeOpacity={0.7}>
           <Text style={styles.uploadText}>Upload Video</Text>
         </TouchableOpacity>
+      </LinearGradient>
       </View>
 
       {/* Countries */}
       <Text style={styles.sectionTitle}>Countries You Want To Visit</Text>
+      
 
       <ScrollView
         horizontal
