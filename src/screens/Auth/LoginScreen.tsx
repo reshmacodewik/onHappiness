@@ -16,6 +16,7 @@ const LoginScreen = () => {
 
   const handleLogin = () => {
     console.log({ email, password });
+    navigation.replace('MainTabs')
   };
 
   return (
@@ -63,7 +64,7 @@ const LoginScreen = () => {
             Don’t Have An Account ?{' '}
             <Text
               style={styles.createAccount}
-              onPress={() => navigation.replace('MainTabs')}
+              onPress={() => navigation.replace('Register')}
             >
               Create Account
             </Text>
