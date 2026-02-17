@@ -5,13 +5,15 @@ import SplashScreen from '../screens/Welcome/SplashScreen';
 import LoginScreen from '../screens/Auth/LoginScreen';
 import RegisterScreen from '../screens/Auth/RegisterScreen';
 import ThankYouScreen from '../screens/ThankYouScreen';
+import BottomTabs from './BottomTabs';
 
 export type RootStackParamList = {
   Splash: undefined;
   Welcome: undefined;
   Login: undefined;
   Register: undefined;
-  Thankyou:undefined
+  Thankyou: undefined;
+  MainTabs: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -30,6 +32,7 @@ const AppNavigator: React.FC = () => {
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Thankyou" component={ThankYouScreen} />
+      <Stack.Screen name="MainTabs" component={BottomTabs} />
     </Stack.Navigator>
   );
 };

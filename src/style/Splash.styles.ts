@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: moderateScale(50),
-    height: moderateScale(50),
+     width: moderateScale(280),
+    height: moderateScale(60),
     resizeMode: 'contain',
   },
   centerWrap: {

@@ -27,9 +27,9 @@ const WelcomeScreen: React.FC = () => {
         <View style={WelcomeStyles.centerWrap}>
           <Text style={WelcomeStyles.welcome}>WELCOME TO</Text>
 
-          <Text style={WelcomeStyles.logoText}>
-           <Image source={Images.Logo} style={WelcomeStyles.logo}/> N Happiness
-          </Text>
+       
+           <Image source={Images.Logo} style={WelcomeStyles.logo}/>  
+    
 
           <Text style={WelcomeStyles.tagline}>MEDITATE. CONNECT. IMPACT.</Text>
 

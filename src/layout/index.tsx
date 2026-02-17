@@ -59,9 +59,9 @@ const Layout: React.FC<LayoutProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    height: SCREEN_HEIGHT,
-    width: SCREEN_WIDTH,
-    flexGrow: 1,
+
+    flex: 1,  
+
   },
   centerContent: {
     justifyContent: 'center',

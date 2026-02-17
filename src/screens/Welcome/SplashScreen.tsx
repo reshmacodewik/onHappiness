@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
-import {Image, ImageBackground, Text, View} from 'react-native';
+import React, { useEffect } from 'react';
+import { Image, ImageBackground, Text, View } from 'react-native';
 import Layout from '../../layout/index';
 import styles from '../../style/Splash.styles';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Images from '../../const/imgUrl';
 
 const SplashScreen = () => {
@@ -17,21 +17,17 @@ const SplashScreen = () => {
   }, []);
 
   return (
-    <Layout fullScreen >
+    <Layout fullScreen>
       <ImageBackground
-        source={Images.Splash}
+        source={Images.Login}
         style={styles.bg}
-        resizeMode="cover">
-
-       <View style={styles.centerWrap}>
-         <Text style={styles.logoText}>
-           <Image source={Images.Logo} style={styles.logo}/> N Happiness
-          </Text>
+        resizeMode="cover"
+      >
+        <View style={styles.centerWrap}>
+          <Image source={Images.Logo} style={styles.logo} />
 
           <Text style={styles.tagline}>MEDITATE. CONNECT. IMPACT.</Text>
-
-       </View>
-
+        </View>
       </ImageBackground>
     </Layout>
   );

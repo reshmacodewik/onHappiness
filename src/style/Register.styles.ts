@@ -176,14 +176,14 @@ const styles = StyleSheet.create({
     padding: moderateScale(20),
     alignItems: 'center',
     marginBottom: moderateScaleHeight(30),
+    backgroundColor: '#00000000',
   },
 
   videoIconWrap: {
     width: moderateScale(70),
     height: moderateScale(70),
     borderRadius: 35,
-    borderWidth: 1,
-    borderColor: '#8B1DA7',
+    backgroundColor: '#1a1a1a',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: moderateScale(14),
@@ -210,24 +210,84 @@ const styles = StyleSheet.create({
     marginHorizontal: moderateScale(20),
   },
 
-  uploadBtn: {
-    backgroundColor: COLORS.white,
-    paddingHorizontal: moderateScale(30),
-    paddingVertical: moderateScale(12),
+  gradientBorder: {
+    height: 44,
+    justifyContent: 'center',
+    marginRight: 12,
     borderRadius: 30,
+    overflow: 'hidden',
+    alignSelf: 'center',
+    backgroundColor: 'transparent',
+    marginTop: 15,
+  },
+  gradientBordercamera: {
+    justifyContent: 'center',
+    marginRight: 12,
+    borderRadius: 30,
+    overflow: 'hidden',
+    alignSelf: 'center',
+    backgroundColor: 'transparent',
+    marginTop: 15,
+  },
+  button: {
+    flex: 1,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: '#1a1a1a',
+    paddingHorizontal: 40,
+    margin: 1.5,
+    borderRadius: 30,
+    overflow: 'hidden',
+  },
+
+  innerButton: {
+    backgroundColor: '#000', // same as card
+    borderRadius: 28, // slightly smaller than outer
+    paddingVertical: 12,
+    paddingHorizontal: 30,
   },
 
   uploadText: {
-    color: COLORS.black,
+    color: '#fff',
+    fontSize: 15,
     fontWeight: '600',
+    textAlign: 'center',
+    marginTop: 10,
   },
 
+  linearGradient: {
+    height: 150,
+    width: 200,
+    borderRadius: 20, // <-- Outer Border Radius
+  },
+  innerContainer: {
+    borderRadius: 15, // <-- Inner Border Radius
+    flex: 1,
+    margin: 5, // <-- Border Width
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: 'Gill Sans',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    margin: 10,
+    color: '#cc2b5e',
+    backgroundColor: 'transparent',
+  },
   sectionTitle: {
     color: COLORS.white,
     fontSize: moderateScale(14),
     marginBottom: moderateScale(12),
   },
-
+  ButtonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    tintColor: '#fff',
+    color: '#ffff',
+  },
   countryRow: {
     flexDirection: 'row',
 
@@ -312,10 +372,19 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 
-  gradientBorder: {
-    padding: 1,
-    borderRadius: 16,
-    marginBottom: 16,
+  uploadBorder: {
+    borderRadius: 25,
+    padding: 1, // thickness of border
+    alignSelf: 'center',
+  },
+
+  uploadInner: {
+    backgroundColor: '#000', // same as your card background
+    borderRadius: 23,
+    paddingVertical: 12,
+    paddingHorizontal: 28,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   planCardActive: {
