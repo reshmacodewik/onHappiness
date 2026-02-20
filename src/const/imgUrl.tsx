@@ -33,7 +33,13 @@ NOTES:require('../assets/icon/mail.png'),
 NOMINATE:require('../assets/icon/premium.png'),
 HEART: require('../assets/icon/heart.png'),
 SOCIALIMPACTS: require('../assets/icon/socialimpact.png'),
-MIND:require('../assets/icon/meet.png')
+MIND:require('../assets/icon/meet.png'),
+QUESTION:require('../assets/icon/question.png'),
+EVENT:require('../assets/icon/events.png'),
+PROFILE:require('../assets/icon/profile.png'),
+SETTING:require('../assets/icon/settings.png'),
+REPORT:require('../assets/icon/report.png'),
+BLOCK:require('../assets/icon/block.png')
 
 
 

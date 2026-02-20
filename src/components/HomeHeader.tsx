@@ -33,7 +33,7 @@ const HomeHeader: React.FC<Props> = ({ onMenuPress }) => {
       <View style={{ flex: 1, alignItems: 'center' }}>
         <Image
           source={Images.Logo}
-          style={{ height: 30, resizeMode: 'contain' }}
+          style={{ height: 30, resizeMode: 'contain',width:250 }}
         />
       </View>
 

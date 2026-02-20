@@ -104,7 +104,6 @@ const OnPurposeScreen: React.FC = () => {
                 return (
                   <View key={item.id} style={{ width, alignItems: 'center' }}>
                     <View style={OnPurposeStyles.circle}>
-            
                       {item.type === 'text' && (
                         <>
                           <Image
@@ -154,7 +153,7 @@ const OnPurposeScreen: React.FC = () => {
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            style={{ marginVertical:35 }}
+            style={{ marginVertical: 35 }}
             contentContainerStyle={{ paddingHorizontal: 5 }}
           >
             {[
@@ -246,25 +245,25 @@ const OnPurposeScreen: React.FC = () => {
                 <View style={OnPurposeStyles.statBox}>
                   <Image
                     source={Images.HEART}
-                   style={OnPurposeStyles.statIconMind}
+                    style={OnPurposeStyles.statIconMind}
                   />
                   <Text style={OnPurposeStyles.statLabel}>Mindfulness</Text>
                   <Text style={OnPurposeStyles.statValue}>100</Text>
                 </View>
 
                 <View style={OnPurposeStyles.statBox}>
-                    <Image
+                  <Image
                     source={Images.MIND}
-                   style={OnPurposeStyles.statIcon}
+                    style={OnPurposeStyles.statIcon}
                   />
                   <Text style={OnPurposeStyles.statLabel}>Meet People</Text>
                   <Text style={OnPurposeStyles.statValue}>22</Text>
                 </View>
 
                 <View style={OnPurposeStyles.statBox}>
-                    <Image
+                  <Image
                     source={Images.SOCIALIMPACTS}
-                   style={OnPurposeStyles.statIcon}
+                    style={OnPurposeStyles.statIcon}
                   />
                   <Text style={OnPurposeStyles.statLabels}>Social Impact</Text>
                   <Text style={OnPurposeStyles.statValue}>50</Text>
@@ -276,8 +275,8 @@ const OnPurposeScreen: React.FC = () => {
       </ScrollView>
       <Modal
         visible={drawerOpen}
-        animationType="slide"
-        transparent={true}
+        transparent
+        animationType="none"
         statusBarTranslucent
       >
         <AppDrawer onClose={() => setDrawerOpen(false)} />
