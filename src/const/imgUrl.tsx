@@ -1,7 +1,7 @@
 const Images ={
-    //gif
-Splash: require('../assets/gif/Splashscreen.gif'),
+
 Login: require('../assets/gif/Login.gif'),
+circlebg: require('../assets/gif/circle.gif'),
 //image
 Logo: require('../assets/images/logo.png'),
 INSTA: require('../assets/images/insta.png'),
@@ -28,6 +28,14 @@ MEETPEOPLE:require('../assets/icon/Meetpeople.png'),
 USER3:require('../assets/images/user3.png'),
 USER4:require('../assets/images/user4.png'),
 USER5:require('../assets/images/user5.png'),
+IDEAS: require('../assets/icon/idea.png'),
+NOTES:require('../assets/icon/mail.png'),
+NOMINATE:require('../assets/icon/premium.png'),
+HEART: require('../assets/icon/heart.png'),
+SOCIALIMPACTS: require('../assets/icon/socialimpact.png'),
+MIND:require('../assets/icon/meet.png')
+
+
 
 
 }
