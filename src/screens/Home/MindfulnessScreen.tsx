@@ -90,8 +90,8 @@ export default function MindfulnessScreen() {
   const [selected, setSelected] = useState<string[]>([]);
   const [step, setStep] = useState(1);
   const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const scrollRef = useRef<ScrollView>(null);
+  const [drawerOpens, setDrawerOpens] = useState(false);
+  const scrollRef = useRef(null);
   const [index, setIndex] = useState(0);
 
   const toggle = (id: string) => {
@@ -141,17 +141,20 @@ export default function MindfulnessScreen() {
     <Layout fullScreen>
       <View style={styles.bg}>
         {step === 1 && (
-          <View style={{ flex: 1 ,marginTop: 50}}>
-
+          <View style={{ flex: 1, marginTop: 50 }}>
             <ScrollView
               contentContainerStyle={{ paddingBottom: 30 }}
               showsVerticalScrollIndicator={false}
             >
-            <HomeHeader centerText="Mindfulness" showAddBtn={false} />
+              <HomeHeader
+                centerText="Mindfulness"
+                showAddBtn={false}
+                onMenuPress={() => setDrawerOpens(true)}
+              />
 
               <View style={[styles.innercontainer]}>
                 <View style={styles.headerRow}>
-                  <Text style={styles.header}>Practices</Text>
+                  <Text style={styles.header}>Select Category</Text>
 
                   <LinearGradient
                     colors={['rgba(183,253,255,1)', 'rgba(172,194,246,1)']}
@@ -168,15 +171,13 @@ export default function MindfulnessScreen() {
                 <Text style={styles.subtitle}>
                   Select your favorite practices
                 </Text>
-
-                {/* FlatList without scroll */}
                 <FlatList
                   data={data}
                   renderItem={renderItem}
                   keyExtractor={i => i.id}
                   numColumns={2}
                   columnWrapperStyle={styles.row}
-                  scrollEnabled={false} // ❗ disable its scroll
+                  scrollEnabled={false} 
                 />
 
                 <TouchableOpacity
@@ -191,6 +192,14 @@ export default function MindfulnessScreen() {
                 </TouchableOpacity>
               </View>
             </ScrollView>
+            <Modal
+              visible={drawerOpens}
+              transparent
+              animationType="none"
+              statusBarTranslucent
+            >
+              <AppDrawer onClose={() => setDrawerOpens(false)} />
+            </Modal>
           </View>
         )}
 
@@ -446,17 +455,17 @@ export default function MindfulnessScreen() {
                 </LinearGradient>
               </View>
             </ScrollView>
+
+            <Modal
+              visible={drawerOpen}
+              transparent
+              animationType="none"
+              statusBarTranslucent
+            >
+              <AppDrawer onClose={() => setDrawerOpen(false)} />
+            </Modal>
           </Layout>
         )}
-
-        <Modal
-          visible={drawerOpen}
-          transparent
-          animationType="none"
-          statusBarTranslucent
-        >
-          <AppDrawer onClose={() => setDrawerOpen(false)} />
-        </Modal>
       </View>
     </Layout>
   );

@@ -5,16 +5,13 @@ export default StyleSheet.create({
   bg: {
     flex: 1,
     backgroundColor: '#000',
-
   },
 
   container: {
     flex: 1,
-
   },
   innercontainer: {
     paddingHorizontal: moderateScale(20),
-  
   },
 
   headerRow: {
@@ -83,13 +80,13 @@ export default StyleSheet.create({
   },
   linearGradient: {
     flex: 1,
-    height: 50,
-    borderRadius: 16,
-    
+    height: 48,
+    borderRadius: 14,
+    marginHorizontal: 4,
   },
 
   activeInner: {
-    borderRadius: 16,
+    borderRadius: 14,
     flex: 1,
     margin: 1,
     backgroundColor: '#131313',
