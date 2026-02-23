@@ -12,7 +12,50 @@ export default StyleSheet.create({
     paddingTop: moderateScaleHeight(60),
     alignItems: 'center', // ⭐ center content
   },
+  leaderTitle: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 12,
+    marginLeft: 20,
+    alignSelf: 'flex-start',
+    fontFamily: 'OpenSans_Condensed-Bold',
+  },
+  leadersContainer: {
+    paddingLeft: 20,
+    paddingRight: 10, // keeps last avatar visible
+  },
+  pillsContainer: {
+    paddingLeft: moderateScale(20),
+    paddingRight: moderateScale(20),
+    marginTop: moderateScaleHeight(12),
+    marginBottom: moderateScaleHeight(20),
+  },
+  pillActive: {
+    paddingHorizontal: 24,
+    paddingVertical: 10,
+    borderRadius: 25,
+    borderWidth: 1.5,
+    borderColor: '#1690E6',
+    marginRight: 10,
+  },
 
+  pillActiveText: {
+    color: '#fff',
+    fontWeight: '500',
+  },
+  pill: {
+    paddingHorizontal: 24,
+    paddingVertical: 10,
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: '#555',
+    marginRight: 10,
+  },
+
+  pillText: {
+    color: '#aaa',
+  },
   carouselWrapper: {
     height: CIRCLE_SIZE,
     justifyContent: 'center', // ⭐ center circle
@@ -30,8 +73,6 @@ export default StyleSheet.create({
     borderWidth: 2,
     borderColor: '#ffffff',
 
-
-
     shadowColor: '#00E5FF',
     shadowOpacity: 0.25,
     shadowRadius: 10,
@@ -43,7 +84,6 @@ export default StyleSheet.create({
     width: '100%',
     height: '100%',
     resizeMode: 'contain',
-
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
@@ -84,7 +124,7 @@ export default StyleSheet.create({
     color: COLORS.white,
     fontSize: moderateScale(18),
     marginTop: moderateScaleHeight(10),
-    textAlign:'center',
+    textAlign: 'center',
     fontWeight: '600',
   },
 
@@ -98,14 +138,11 @@ export default StyleSheet.create({
     width: '100%',
     marginTop: moderateScaleHeight(10),
     marginBottom: moderateScaleHeight(10),
-
   },
 
   userItem: {
     marginRight: moderateScale(15),
     alignItems: 'center',
-    marginBottom:moderateScale(30),
-   
   },
 
   userImage: {
@@ -143,7 +180,7 @@ export default StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 12,
     paddingHorizontal: 40,
-    marginTop: 18,
+    marginTop: 8,
   },
 
   followText: {
@@ -193,12 +230,12 @@ export default StyleSheet.create({
     fontSize: 22,
     fontWeight: '600',
     marginTop: 10,
-    fontFamily:'Montserrat-Semibold'
+    fontFamily: 'Montserrat-Semibold',
   },
 
   tagRow: {
     flexDirection: 'row',
-    gap:20,
+    gap: 20,
     marginTop: 10,
   },
 
@@ -229,7 +266,7 @@ export default StyleSheet.create({
     marginTop: 4,
     marginBottom: 18,
     fontStyle: 'italic',
-    fontSize:20
+    fontSize: 20,
   },
 
   statsRow: {
@@ -247,19 +284,19 @@ export default StyleSheet.create({
   },
 
   statIcon: {
-  width:28,
-  height:28
+    width: 28,
+    height: 28,
   },
- statIconMind: {
-  width:32,
-  height:28
+  statIconMind: {
+    width: 32,
+    height: 28,
   },
   statLabel: {
     color: '#aaa',
     fontSize: 11,
     marginTop: 4,
   },
-statLabels: {
+  statLabels: {
     color: '#aaa',
     fontSize: 10,
     marginTop: 4,

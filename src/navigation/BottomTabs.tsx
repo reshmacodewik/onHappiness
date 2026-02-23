@@ -4,6 +4,7 @@ import { Text, Image, View } from 'react-native';
 import OnPurposeScreen from '../screens/Home/OnPurposeScreen';
 import Images from '../const/imgUrl';
 import LinearGradient from 'react-native-linear-gradient';
+import MindfulnessScreen from '../screens/Home/MindfulnessScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -87,9 +88,7 @@ const BottomTabs = () => {
       })}
     >
       <Tab.Screen name="Home" component={OnPurposeScreen} />
-      <Tab.Screen name="Mindfulness">
-        {() => <DummyScreen title="Mindfulness" />}
-      </Tab.Screen>
+      <Tab.Screen name="Mindfulness" component={MindfulnessScreen} />
       <Tab.Screen name="MeetPeople">
         {() => <DummyScreen title="Meet People" />}
       </Tab.Screen>
