@@ -10,7 +10,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.black,
     paddingTop: moderateScaleHeight(60),
-    alignItems: 'center', // ⭐ center content
+    alignItems: 'center',
   },
   leaderTitle: {
     color: '#fff',
@@ -23,7 +23,7 @@ export default StyleSheet.create({
   },
   leadersContainer: {
     paddingLeft: 20,
-    paddingRight: 10, // keeps last avatar visible
+    paddingRight: 10,
   },
   pillsContainer: {
     paddingLeft: moderateScale(20),
@@ -32,7 +32,7 @@ export default StyleSheet.create({
     marginBottom: moderateScaleHeight(20),
   },
   pillActive: {
-    paddingHorizontal: 24,
+    paddingHorizontal: 50,
     paddingVertical: 10,
     borderRadius: 25,
     borderWidth: 1.5,
@@ -45,7 +45,7 @@ export default StyleSheet.create({
     fontWeight: '500',
   },
   pill: {
-    paddingHorizontal: 24,
+    paddingHorizontal: 50,
     paddingVertical: 10,
     borderRadius: 25,
     borderWidth: 1,
@@ -64,21 +64,67 @@ export default StyleSheet.create({
   },
 
   circle: {
-    width: CIRCLE_SIZE,
-    height: CIRCLE_SIZE,
-    borderRadius: CIRCLE_SIZE / 2,
+    width: 360,
+    height: 360,
+    borderRadius: 200,
     overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 2,
-    borderColor: '#ffffff',
-
-    shadowColor: '#00E5FF',
-    shadowOpacity: 0.25,
-    shadowRadius: 10,
-    elevation: 8,
+    borderWidth: 3,
+    borderColor: '#fff',
   },
 
+  circleImage: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+  },
+
+  eventCard: {
+    width: '75%',
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    paddingVertical: 14,
+    paddingHorizontal: 12,
+    borderRadius: 14,
+    alignItems: 'center',
+    borderWidth: 2.79,
+    borderColor: 'rgba(255, 255, 255, 1)',
+  },
+
+  eventTitle: {
+    fontSize: 18,
+    color: 'rgba(255, 255, 255, 1)',
+    fontFamily: 'Montserrat-Bold',
+  },
+
+  eventName: {
+    fontSize: 18,
+    color: 'rgba(255, 255, 255, 1)',
+    marginTop: 2,
+    fontFamily: 'Montserrat-Bold',
+  },
+
+  eventTime: {
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 1)',
+    fontFamily: 'Montserrat-SemiBold',
+    marginVertical: 6,
+  },
+
+  rsvpBtn: {
+    backgroundColor: '#fff',
+    paddingVertical: 8,
+    paddingHorizontal: 28,
+    borderRadius: 8,
+    marginTop: 4,
+    borderWidth: 1,
+    borderColor: 'rgba(124, 251, 236, 1)',
+  },
+
+  rsvpText: {
+    fontWeight: '600',
+    color: '#000',
+  },
   circleBg: {
     position: 'absolute',
     width: '100%',
@@ -96,12 +142,6 @@ export default StyleSheet.create({
     lineHeight: 22,
     paddingHorizontal: 24,
     fontWeight: '500',
-  },
-
-  circleImage: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
   },
 
   dotsContainer: {
@@ -163,9 +203,8 @@ export default StyleSheet.create({
   },
 
   flag: {
-    width: 36,
-    height: 24,
-    borderRadius: 4,
+    width: 48,
+    height: 28,
   },
 
   countryText: {
@@ -305,5 +344,36 @@ export default StyleSheet.create({
     color: '#fff',
     fontWeight: '700',
     marginTop: 2,
+  },
+  daysWrapper: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
+
+  daysContainer: {
+    marginBottom: 20,
+  },
+
+  dayItem: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 6,
+  },
+
+  dayText: {
+    fontSize: 16,
+    color: '#aaa',
+    fontWeight: '600',
+  },
+
+  activeDayItem: {
+    backgroundColor: '#0A84FF', // blue highlight
+  },
+
+  activeDayText: {
+    color: '#fff',
   },
 });

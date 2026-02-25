@@ -36,6 +36,7 @@ const AppNavigator: React.FC = () => {
       <Stack.Screen name="Thankyou" component={ThankYouScreen} />
       <Stack.Screen name="MainTabs" component={BottomTabs} />
       <Stack.Screen name="OnPurposeScreen" component={OnPurposeScreen} />
+   
     </Stack.Navigator>
   );
 };

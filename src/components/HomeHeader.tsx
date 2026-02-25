@@ -27,7 +27,7 @@ const HomeHeader: React.FC<Props> = ({
         backgroundColor: '#000',
       }}
     >
-      {/* Left */}
+
       <TouchableOpacity
         style={{ width: 40 }}
         onPress={() => {
@@ -41,7 +41,7 @@ const HomeHeader: React.FC<Props> = ({
         />
       </TouchableOpacity>
 
-      {/* Center */}
+  
       <View style={{ flex: 1, alignItems: 'center' }}>
         {centerText ? (
           <Text style={{ color: '#fff', fontSize: 35,fontFamily:'OpenSans_SemiCondensed-Bold' }}>{centerText}</Text>
