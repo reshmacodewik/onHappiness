@@ -17,6 +17,7 @@ import HomeHeader from '../../components/HomeHeader';
 import Images from '../../const/imgUrl';
 import LinearGradient from 'react-native-linear-gradient';
 import AppDrawer from '../../components/AppDrawer';
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 const CIRCLE_SIZE = width * 0.85;
@@ -61,6 +62,7 @@ const OnPurposeScreen: React.FC = () => {
   const [index, setIndex] = useState(0);
   const scrollRef = useRef<ScrollView>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const navigation =useNavigation();
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const slideIndex = Math.round(event.nativeEvent.contentOffset.x / width);
     setIndex(slideIndex);
@@ -74,7 +76,11 @@ const OnPurposeScreen: React.FC = () => {
         contentContainerStyle={{ paddingBottom: 120 }}
       >
         <View style={OnPurposeStyles.container}>
-          <HomeHeader onMenuPress={() => setDrawerOpen(true)} />
+          <HomeHeader
+            onMenuPress={() => setDrawerOpen(true)}
+            onAddPress={() => navigation.navigate('UploadContent' as never) }
+            
+          />
 
           <ScrollView
             horizontal
@@ -104,7 +110,6 @@ const OnPurposeScreen: React.FC = () => {
                 return (
                   <View key={item.id} style={{ width, alignItems: 'center' }}>
                     <View style={OnPurposeStyles.circle}>
-            
                       {item.type === 'text' && (
                         <>
                           <Image
@@ -154,7 +159,7 @@ const OnPurposeScreen: React.FC = () => {
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
-            style={{ marginVertical:35 }}
+            style={{ marginVertical: 35 }}
             contentContainerStyle={{ paddingHorizontal: 5 }}
           >
             {[
@@ -246,25 +251,25 @@ const OnPurposeScreen: React.FC = () => {
                 <View style={OnPurposeStyles.statBox}>
                   <Image
                     source={Images.HEART}
-                   style={OnPurposeStyles.statIconMind}
+                    style={OnPurposeStyles.statIconMind}
                   />
                   <Text style={OnPurposeStyles.statLabel}>Mindfulness</Text>
                   <Text style={OnPurposeStyles.statValue}>100</Text>
                 </View>
 
                 <View style={OnPurposeStyles.statBox}>
-                    <Image
+                  <Image
                     source={Images.MIND}
-                   style={OnPurposeStyles.statIcon}
+                    style={OnPurposeStyles.statIcon}
                   />
                   <Text style={OnPurposeStyles.statLabel}>Meet People</Text>
                   <Text style={OnPurposeStyles.statValue}>22</Text>
                 </View>
 
                 <View style={OnPurposeStyles.statBox}>
-                    <Image
+                  <Image
                     source={Images.SOCIALIMPACTS}
-                   style={OnPurposeStyles.statIcon}
+                    style={OnPurposeStyles.statIcon}
                   />
                   <Text style={OnPurposeStyles.statLabels}>Social Impact</Text>
                   <Text style={OnPurposeStyles.statValue}>50</Text>
@@ -276,8 +281,8 @@ const OnPurposeScreen: React.FC = () => {
       </ScrollView>
       <Modal
         visible={drawerOpen}
-        animationType="slide"
-        transparent={true}
+        transparent
+        animationType="none"
         statusBarTranslucent
       >
         <AppDrawer onClose={() => setDrawerOpen(false)} />

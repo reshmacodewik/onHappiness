@@ -1,10 +1,24 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import Images from '../const/imgUrl';
+
 interface Props {
   onMenuPress?: () => void;
+  onAddPress?: () => void;
+  showLogo?: boolean; // Show logo in center
+  centerText?: string; // Show text instead of logo
+  showAddBtn?: boolean; // Show add button on right
+  showZap?: boolean; // Show zap icon
 }
-const HomeHeader: React.FC<Props> = ({ onMenuPress }) => {
+
+const HomeHeader: React.FC<Props> = ({
+  onMenuPress,
+  onAddPress,
+  showLogo = true,
+  centerText,
+  showAddBtn = true,
+  showZap = true,
+}) => {
   return (
     <View
       style={{
@@ -15,7 +29,6 @@ const HomeHeader: React.FC<Props> = ({ onMenuPress }) => {
         backgroundColor: '#000',
       }}
     >
-      {/* Left */}
       <TouchableOpacity
         style={{ width: 40 }}
         onPress={() => {
@@ -29,12 +42,25 @@ const HomeHeader: React.FC<Props> = ({ onMenuPress }) => {
         />
       </TouchableOpacity>
 
-      {/* Center */}
       <View style={{ flex: 1, alignItems: 'center' }}>
-        <Image
-          source={Images.Logo}
-          style={{ height: 30, resizeMode: 'contain' }}
-        />
+        {centerText ? (
+          <Text
+            style={{
+              color: '#fff',
+              fontSize: 30,
+              fontFamily: 'OpenSans_SemiCondensed-Bold',
+            }}
+          >
+            {centerText}
+          </Text>
+        ) : (
+          showLogo && (
+            <Image
+              source={Images.Logo}
+              style={{ height: 50, width: 200, }}
+            />
+          )
+        )}
       </View>
 
       {/* Right */}
@@ -45,11 +71,17 @@ const HomeHeader: React.FC<Props> = ({ onMenuPress }) => {
           justifyContent: 'flex-end',
         }}
       >
-        <Image
-          source={Images.ADDBTN}
-          style={{ width: 35, height: 26, marginRight: 12 }}
-        />
-        <Image source={Images.ZAP} style={{ width: 35, height: 24 }} />
+        {showAddBtn && (
+          <TouchableOpacity onPress={onAddPress}>
+            <Image
+              source={Images.ADDBTN}
+              style={{ width: 35, height: 26, marginRight: 12 }}
+            />
+          </TouchableOpacity>
+        )}
+        {showZap && (
+          <Image source={Images.ZAP} style={{ width: 35, height: 24 }} />
+        )}
       </View>
     </View>
   );

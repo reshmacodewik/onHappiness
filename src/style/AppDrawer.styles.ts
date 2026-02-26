@@ -1,52 +1,86 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { moderateScale } from "../utils/scale";
+import { StyleSheet, Dimensions } from 'react-native';
 
-
-const { width } = Dimensions.get("window");
+const { width } = Dimensions.get('window');
 
 export default StyleSheet.create({
-  container: {
+  overlay: {
     flex: 1,
-    backgroundColor: "#000",
-    paddingTop: moderateScale(60),
-    paddingHorizontal: moderateScale(24),
+    backgroundColor: 'rgba(0,0,0,0.45)',
+    justifyContent: 'flex-end',
+  },
+
+  backdrop: {
+    position: 'absolute',
+    width: width,
+    height: '100%',
+  },
+
+  drawer: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: width * 0.87, // ⭐ correct size
+    backgroundColor: '#000',
+    paddingTop: 60,
+    paddingHorizontal: 24,
   },
 
   close: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 28,
     marginBottom: 20,
   },
-
-  section: {
-    color: "#7A7A7A",
-    fontSize: 16,
-    marginTop: 25,
-    marginBottom: 10,
-    fontWeight: "600",
+ sectionIN: {
+    color: 'rgba(96, 95, 95, 0.93)',
+    fontSize: 20,
+    marginTop: 0,
+    marginBottom: 8,
+    fontFamily: 'OpenSans_Condensed-Bold',
   },
-
+  section: {
+    color: 'rgba(96, 95, 95, 0.93)',
+    fontSize: 20,
+    marginTop: 8,
+    marginBottom: 8,
+    fontFamily: 'OpenSans_Condensed-Bold',
+  },
+  questionIcon: {
+    width: 20,
+  },
+    questionIconheart: {
+    width: 23,
+    height:20
+  },
+    questionIcons: {
+    width: 23,
+    height:28
+  },
   divider: {
-    height: 3,
-    width: width * 0.7,
-    marginBottom: 15,
+    height: 2,
+    width: '80%',
+    marginBottom: 14,
+    marginTop: 20,
   },
 
   menuItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
   },
 
   icon: {
-    width: 26,
-    height: 26,
-    tintColor: "#fff",
-    marginRight: 18,
+    width: 30,
+    height: 30,
+    tintColor: '#fff',
+    marginRight: 16,
   },
 
   menuText: {
-    color: "#EAEAEA",
-    fontSize: 18,
+    color: '#EAEAEA',
+    fontSize: 16,
+    fontFamily: 'OpenSans-Bold',
+    letterSpacing: 0,
+    fontWeight: 'bold',
   },
 });
