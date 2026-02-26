@@ -17,6 +17,7 @@ import HomeHeader from '../../components/HomeHeader';
 import Images from '../../const/imgUrl';
 import LinearGradient from 'react-native-linear-gradient';
 import AppDrawer from '../../components/AppDrawer';
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 const CIRCLE_SIZE = width * 0.85;
@@ -61,6 +62,7 @@ const OnPurposeScreen: React.FC = () => {
   const [index, setIndex] = useState(0);
   const scrollRef = useRef<ScrollView>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const navigation =useNavigation();
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const slideIndex = Math.round(event.nativeEvent.contentOffset.x / width);
     setIndex(slideIndex);
@@ -74,7 +76,11 @@ const OnPurposeScreen: React.FC = () => {
         contentContainerStyle={{ paddingBottom: 120 }}
       >
         <View style={OnPurposeStyles.container}>
-          <HomeHeader onMenuPress={() => setDrawerOpen(true)} />
+          <HomeHeader
+            onMenuPress={() => setDrawerOpen(true)}
+            onAddPress={() => navigation.navigate('UploadContent' as never) }
+            
+          />
 
           <ScrollView
             horizontal

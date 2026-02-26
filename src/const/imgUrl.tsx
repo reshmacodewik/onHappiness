@@ -39,7 +39,10 @@ EVENT:require('../assets/icon/events.png'),
 PROFILE:require('../assets/icon/profile.png'),
 SETTING:require('../assets/icon/settings.png'),
 REPORT:require('../assets/icon/report.png'),
-BLOCK:require('../assets/icon/block.png')
+BLOCK:require('../assets/icon/block.png'),
+VIDEO:require('../assets/icon/video.png'),
+LOCATION:require('../assets/icon/send.png'),
+COLORCAMERA:require('../assets/icon/camera1.png')
 
 
 

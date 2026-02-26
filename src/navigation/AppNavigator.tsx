@@ -7,6 +7,8 @@ import RegisterScreen from '../screens/Auth/RegisterScreen';
 import ThankYouScreen from '../screens/ThankYouScreen';
 import BottomTabs from './BottomTabs';
 import OnPurposeScreen from '../screens/Home/OnPurposeScreen';
+import CreateEventScreen from '../screens/AddHeader/CreateEventScreen';
+import UploadContent from '../screens/AddHeader/UploadContent';
 
 export type RootStackParamList = {
   Splash: undefined;
@@ -16,6 +18,9 @@ export type RootStackParamList = {
   Thankyou: undefined;
   MainTabs: undefined;
   OnPurposeScreen: undefined;
+  UploadContent: undefined;
+ CreateMeet: undefined;
+ CreateSocial:undefined
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -36,7 +41,14 @@ const AppNavigator: React.FC = () => {
       <Stack.Screen name="Thankyou" component={ThankYouScreen} />
       <Stack.Screen name="MainTabs" component={BottomTabs} />
       <Stack.Screen name="OnPurposeScreen" component={OnPurposeScreen} />
-   
+      <Stack.Screen name="UploadContent" component={UploadContent} />
+      <Stack.Screen name="CreateMeet">
+        {() => <CreateEventScreen type="meet" />}
+      </Stack.Screen>
+
+      <Stack.Screen name="CreateSocial">
+        {() => <CreateEventScreen type="social" />}
+      </Stack.Screen>
     </Stack.Navigator>
   );
 };

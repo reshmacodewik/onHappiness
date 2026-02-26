@@ -20,6 +20,8 @@ import HomeHeader from '../../components/HomeHeader';
 import Layout from '../../layout';
 import Images from '../../const/imgUrl';
 import AppDrawer from '../../components/AppDrawer';
+import RsvpModal from '../../components/RsvpModal';
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 
@@ -81,7 +83,7 @@ const datas: CarouselItem[] = [
     id: 3,
     type: 'image',
     image: require('../../assets/images/user2.png'),
-      event: {
+    event: {
       title: 'Soccer Game',
       time: '5/1 @ 5:00 PM (EST)',
       seats: 8,
@@ -104,6 +106,8 @@ export default function MeetPeopleScreen() {
   const scrollRef = useRef(null);
   const [index, setIndex] = useState(0);
   const [activeDay, setActiveDay] = useState(4);
+  const [rsvpVisible, setRsvpVisible] = useState(false);
+  const navigation =useNavigation();
   const toggle = (id: string) => {
     setSelected(prev =>
       prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id],
@@ -221,7 +225,11 @@ export default function MeetPeopleScreen() {
               contentContainerStyle={{ paddingBottom: 120 }}
             >
               <View style={OnPurposeStyles.container}>
-                <HomeHeader onMenuPress={() => setDrawerOpen(true)} />
+                <HomeHeader
+                  centerText="Meet People"
+                  onAddPress={() => navigation.navigate('CreateMeet' as never)}
+                  onMenuPress={() => setDrawerOpen(true)}
+                />
                 <Text style={OnPurposeStyles.leaderTitle}>
                   Leaders To Follow
                 </Text>
@@ -259,37 +267,37 @@ export default function MeetPeopleScreen() {
                     <Text style={OnPurposeStyles.pillText}>Gratitude</Text>
                   </TouchableOpacity>
                 </ScrollView>
-               
-                  <ScrollView
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                    contentContainerStyle={OnPurposeStyles.daysContainer}
-                  >
-                    {days.map((day, index) => {
-                      const isActive = index === activeDay;
 
-                      return (
-                        <TouchableOpacity
-                          key={index}
+                <ScrollView
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  contentContainerStyle={OnPurposeStyles.daysContainer}
+                >
+                  {days.map((day, index) => {
+                    const isActive = index === activeDay;
+
+                    return (
+                      <TouchableOpacity
+                        key={index}
+                        style={[
+                          OnPurposeStyles.dayItem,
+                          isActive && OnPurposeStyles.activeDayItem,
+                        ]}
+                        onPress={() => setActiveDay(index)}
+                      >
+                        <Text
                           style={[
-                            OnPurposeStyles.dayItem,
-                            isActive && OnPurposeStyles.activeDayItem,
+                            OnPurposeStyles.dayText,
+                            isActive && OnPurposeStyles.activeDayText,
                           ]}
-                          onPress={() => setActiveDay(index)}
                         >
-                          <Text
-                            style={[
-                              OnPurposeStyles.dayText,
-                              isActive && OnPurposeStyles.activeDayText,
-                            ]}
-                          >
-                            {day}
-                          </Text>
-                        </TouchableOpacity>
-                      );
-                    })}
-                  </ScrollView>
-              
+                          {day}
+                        </Text>
+                      </TouchableOpacity>
+                    );
+                  })}
+                </ScrollView>
+
                 <View style={OnPurposeStyles.carouselWrapper}>
                   <ScrollView
                     ref={scrollRef}
@@ -331,25 +339,35 @@ export default function MeetPeopleScreen() {
                             )}
 
                             {item.event && (
-                              <View style={OnPurposeStyles.eventCard}>
-                                <Text style={OnPurposeStyles.eventTitle}>
-                                  Upcoming Event
-                                </Text>
-
-                                <Text style={OnPurposeStyles.eventName}>
-                                  {item.event.title}
-                                </Text>
-
-                                <Text style={OnPurposeStyles.eventTime}>
-                                  {item.event.time}
-                                </Text>
-
-                                <View style={OnPurposeStyles.rsvpBtn}>
-                                  <Text style={OnPurposeStyles.rsvpText}>
-                                    RSVP | {item.event.seats} Seats
+                              <LinearGradient
+                                colors={['#1690E6', '#73EAED']}
+                                start={{ x: 0, y: 0 }}
+                                end={{ x: 0, y: 1 }}
+                                style={OnPurposeStyles.linearGradientt}
+                              >
+                                <View style={OnPurposeStyles.eventCard}>
+                                  <Text style={OnPurposeStyles.eventTitle}>
+                                    Upcoming Event
                                   </Text>
+
+                                  <Text style={OnPurposeStyles.eventName}>
+                                    {item.event.title}
+                                  </Text>
+
+                                  <Text style={OnPurposeStyles.eventTime}>
+                                    {item.event.time}
+                                  </Text>
+
+                                  <TouchableOpacity
+                                    style={OnPurposeStyles.rsvpBtn}
+                                    onPress={() => setRsvpVisible(true)}
+                                  >
+                                    <Text style={OnPurposeStyles.rsvpText}>
+                                      RSVP | {item.event.seats} Seats
+                                    </Text>
+                                  </TouchableOpacity>
                                 </View>
-                              </View>
+                              </LinearGradient>
                             )}
                           </View>
                         </View>
@@ -526,6 +544,12 @@ export default function MeetPeopleScreen() {
             >
               <AppDrawer onClose={() => setDrawerOpen(false)} />
             </Modal>
+            {rsvpVisible && (
+              <RsvpModal
+                visible={rsvpVisible}
+                onClose={() => setRsvpVisible(false)}
+              />
+            )}
           </Layout>
         )}
       </View>

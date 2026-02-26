@@ -20,6 +20,7 @@ import HomeHeader from '../../components/HomeHeader';
 import Layout from '../../layout';
 import Images from '../../const/imgUrl';
 import AppDrawer from '../../components/AppDrawer';
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 
@@ -103,6 +104,7 @@ export default function SocialImpactScreen() {
   const [drawerOpens, setDrawerOpens] = useState(false);
   const scrollRef = useRef(null);
   const [index, setIndex] = useState(0);
+  const navigation =useNavigation();
   const [activeDay, setActiveDay] = useState(4);
   const toggle = (id: string) => {
     setSelected(prev =>
@@ -221,7 +223,11 @@ export default function SocialImpactScreen() {
               contentContainerStyle={{ paddingBottom: 120 }}
             >
               <View style={OnPurposeStyles.container}>
-                <HomeHeader onMenuPress={() => setDrawerOpen(true)} />
+               <HomeHeader
+                  centerText="Social Impact"
+                  onAddPress={() => navigation.navigate('CreateSocial' as never)}
+                  onMenuPress={() => setDrawerOpen(true)}
+                />
                 <Text style={OnPurposeStyles.leaderTitle}>
                   Leaders To Follow
                 </Text>

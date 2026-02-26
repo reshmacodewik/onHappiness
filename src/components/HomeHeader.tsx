@@ -4,6 +4,7 @@ import Images from '../const/imgUrl';
 
 interface Props {
   onMenuPress?: () => void;
+  onAddPress?: () => void;
   showLogo?: boolean; // Show logo in center
   centerText?: string; // Show text instead of logo
   showAddBtn?: boolean; // Show add button on right
@@ -12,6 +13,7 @@ interface Props {
 
 const HomeHeader: React.FC<Props> = ({
   onMenuPress,
+  onAddPress,
   showLogo = true,
   centerText,
   showAddBtn = true,
@@ -27,7 +29,6 @@ const HomeHeader: React.FC<Props> = ({
         backgroundColor: '#000',
       }}
     >
-
       <TouchableOpacity
         style={{ width: 40 }}
         onPress={() => {
@@ -41,15 +42,22 @@ const HomeHeader: React.FC<Props> = ({
         />
       </TouchableOpacity>
 
-  
       <View style={{ flex: 1, alignItems: 'center' }}>
         {centerText ? (
-          <Text style={{ color: '#fff', fontSize: 35,fontFamily:'OpenSans_SemiCondensed-Bold' }}>{centerText}</Text>
+          <Text
+            style={{
+              color: '#fff',
+              fontSize: 30,
+              fontFamily: 'OpenSans_SemiCondensed-Bold',
+            }}
+          >
+            {centerText}
+          </Text>
         ) : (
           showLogo && (
             <Image
               source={Images.Logo}
-              style={{ height: 30, width: 250, resizeMode: 'contain' }}
+              style={{ height: 50, width: 200, }}
             />
           )
         )}
@@ -64,12 +72,16 @@ const HomeHeader: React.FC<Props> = ({
         }}
       >
         {showAddBtn && (
-          <Image
-            source={Images.ADDBTN}
-            style={{ width: 35, height: 26, marginRight: 12 }}
-          />
+          <TouchableOpacity onPress={onAddPress}>
+            <Image
+              source={Images.ADDBTN}
+              style={{ width: 35, height: 26, marginRight: 12 }}
+            />
+          </TouchableOpacity>
         )}
-        {showZap && <Image source={Images.ZAP} style={{ width: 35, height: 24 }} />}
+        {showZap && (
+          <Image source={Images.ZAP} style={{ width: 35, height: 24 }} />
+        )}
       </View>
     </View>
   );
